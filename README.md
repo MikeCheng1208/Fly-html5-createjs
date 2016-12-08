@@ -12,3 +12,4 @@
 * 07：https://mikecheng1208.github.io/Fly-html5-createjs/demo7.html
 * 08：https://mikecheng1208.github.io/Fly-html5-createjs/demo8/index.html
 * 09：https://mikecheng1208.github.io/Fly-html5-createjs/demo9/index.html
+* 10：https://mikecheng1208.github.io/Fly-html5-createjs/demo10.html

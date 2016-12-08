@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4-11 彈幕</title>
+    <script src="//code.createjs.com/createjs-2015.11.26.min.js"></script>
+
+    <style>
+        *{margin: 0;padding: 0;}
+        canvas{display: block;}
+        div{position: absolute;top: 50%;left: 50%;width: 370px;height: 30px;margin-left: -185px;margin-top: -15px;}
+        input{display: block;width: 300px;height: 30px;float: left;font-size: 20px;}
+        button{display: block;width: 50px;height: 30px;float: right;}
+    </style>   
+</head>
+
+<body>	
+	<div>
+		<input id="inputText" type="text" name="" placeholder="輸入些什麼">
+		<button id="inpBtn">送出</button>
+	</div>
+	<canvas id="canvas" style="background-color:#f3f3f3"></canvas>
+	<script>
+	window.onload = function (){
+		resizeCanvas();
+		var inpBtn = document.querySelector("#inpBtn");
+		var inputText = document.querySelector("#inputText");
+
+		var canvas = document.querySelector("#canvas");				
+		var stage = new createjs.Stage(canvas);	
+
+
+		inpBtn.addEventListener("click",function(){
+			textCreate(inputText.value);
+			inputText.value = "";
+		})
+
+
+		function textCreate(usertext){
+           	var fontSize = Math.random() * (80 - 30 + 1) + 30 | 0;
+           	var str = fontSize+"px"+" 微軟正黑體";
+           	var color = "#" + (~~(Math.random() * 0xffffff)).toString(16); 
+            var text = new createjs.Text(usertext,str,color);
+            stage.addChild(text);
+            text.x = 50;
+            text.y = Math.random() * (window.innerHeight - 0 + 1) + 0 | 0;
+            createjs.Tween.get(text).to({x: window.innerWidth}, 3000 , createjs.QuadraticIn).call(function(){
+                stage.removeChild(text);
+            });
+		}
+
+
+
+		createjs.Ticker.setFPS(60); 
+		createjs.Ticker.addEventListener("tick",stage); 
+			
+
+		//隨瀏覽器變動
+		function resizeCanvas(){
+		    var canvas = document.getElementById('canvas');
+		    canvas.setAttribute("width",window.innerWidth);
+		    canvas.setAttribute("height",window.innerHeight);
+		}
+		window.onresize = resizeCanvas;
+	}
+</script>
+	
+	
+</body>
+</html>
