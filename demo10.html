@@ -34,7 +34,12 @@
 			textCreate(inputText.value);
 			inputText.value = "";
 		})
-
+		inputText.onkeyup = function(e){
+			if (e.key == "Enter") {
+				textCreate(inputText.value);
+				inputText.value = "";
+			}
+		}
 
 		function textCreate(usertext){
            	var fontSize = Math.random() * (80 - 30 + 1) + 30 | 0;
