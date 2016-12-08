@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>塗鴉版</title>
+    <script src="//code.createjs.com/createjs-2015.11.26.min.js"></script>
+
+    <style>
+        *{margin: 0;padding: 0;}
+        canvas{display: block;}
+    </style>   
+</head>
+
+<body>	
+	<canvas id="canvas" style="background-color:#d3d3d3"></canvas>
+	<script>
+	                        window                        
+	                  . onload       =                    
+	              function(){ function e()                
+	            { d=!0,a='#' +(~ ~(16777215*              
+	          Math.random()  ) ).toString(16),            
+	        i=30  *Math.random(  ) +10|0, u.x=r.          
+	      mouseX              ,u .y=r .mouseY; }          
+	      function                t (){d&&(  m   .        
+	    graphics                      .                   
+	    setStrokeStyle                  ( i,'round',      
+	  'round'                           ). beginStroke    
+	    ( a ).                          moveTo( u.x,u.    
+	    y )  .                          lineTo     (r.    
+	    mouseX                          ,r.mouseY) ,u.    
+	  x= r .                              mouseX,u.y =    
+	  r    .                              mouseY  , r.    
+	update (                              )  )  ;      }  
+	function                              n (){d= !1 ; }  
+	  function    o (   ){        var e   =    document.  
+	  getElementById (           'canvas'     );    e   .  
+	  setAttribute              (         'width'      ,  
+	    window                  .           innerWidth )  
+	      ,                     e    .        setAttribute 
+	      (                     'height'    , window .    
+	      innerHeight             ); }    o() ;var a,i    
+	        ,                     d=! 1,  s        =      
+	                            document           .      
+	                            getElementById     (      
+	                        'canvas'    ) , r  =new       
+	                  createjs. Stage  ( s  ) ; r.        
+	                  addEventListener (                       
+	                              'stagemousedown'        
+	            , e)          ,r. addEventListener        
+	            (               'stagemousemove',t )      
+	            ,r .              addEventListener (                 
+	            'stagemouseup'  , n)  ;var u=new  createjs
+	            . Point(          ),m=new createjs. Shape(
+	            )  ;r    .        addChild( m) ,createjs .
+	        Ticker. setFPS        (60),r.update(),window .
+	    onresize =o ; };                                  
+
+</script>
+	
+	
+</body>
+</html>

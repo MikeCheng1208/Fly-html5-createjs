@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ColorMatrix</title>
+    <script src="//code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #canvas{
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: calc(-960px/2);
+            margin-top:  calc(-750px/2);
+            
+        }
+    </style>   
+</head>
+<body> 
+    <canvas width="960"	height="750" id="canvas" style="background-color:#ccc"></canvas>  
+    <script>							
+        window .onload    = function(){ var  e=document  .
+        getElementById('canvas'),t=new createjs.Stage(e) ,
+        a=  new  createjs.LoadQueue( !       0),n= [{src :
+        'images/portrait.jpg'           ,id:'image0'}];a .
+        loadManifest( n)                    ,  a         .
+        addEventListener                      ( 'fileload'
+        , function(e                            ) {var a=e
+        . result,n                                =   new 
+        createjs        .             Bitmap      ( a), r=
+        new           createjs        .             ColorMatrix
+        () ; r .        adjustBrightness (0), r        .     
+        adjustContrast                              (50) ,
+        r    .                                      adjustSaturation
+        ( -100                                      ) ,r .
+        adjustHue                                   (0 ) ;
+        var  i =                            new     createjs
+        .             ColorMatrixFilter   (r )    ;  n   .
+        filters =[      i ],          n    .      cache( 0
+        ,0, a.width,      a .height),n. x=      480  -a  .
+        width/2,n .y          =375- a.        height/2 ,t.
+        addChild   ( n),                    createjs     .
+        Ticker. setFPS( 60),            createjs . Ticker.
+        addEventListener('tick'     , t);    } ) ;}      ; 
+    </script>
+</body>
+</html>

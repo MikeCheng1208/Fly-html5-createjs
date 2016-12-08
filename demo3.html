@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音頻擷取</title>
+    <script src="//code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #canvas{
+            display: block;
+        }
+    </style>   
+</head>
+<body> 
+    <canvas id="canvas" style="background-color:#232323"></canvas>  
+    <script>
+	                        function resizeCanvas( )                        
+	                    {var  e=document.getElementById(                    
+	                'canvas');e.setAttribute('width' ,window                
+	              .innerWidth),e.setAttribute('height' ,window              
+	            .innerHeight);} function  SoundMp3(e) {createjs.            
+	          Sound  .  alternateExtensions  = ['mp3' ],    createjs        
+	        .             Sound.registerSound (    e ,        'sound'       
+	      )    ,          createjs     .   Sound . on(          'fileload'  
+	    ,               loadHandler      )  ;  } function       loadHandler 
+	    () {var e=  createjs.Sound.play('sound' ) ;e.volume=  0.1;var  t    
+	  =  createjs  .Sound.          activePlugin      .         context  ;  
+	  analyserNode=t   .                                createAnalyser() ,  
+	analyserNode     .                                    fftSize=2048     ,
+	analyserNode     .                                      connect   ( t  .
+	  destination) ;                                        var   a      =  
+	  createjs     .        Sound               .           activePlugin .  
+	  dynamicsCompressorNode ;   a.            disconnect    ( ),a.connect(  
+	analyserNode ) ,        freqByteData        =           new  Uint8Array(
+	analyserNode   .                                        frequencyBinCount
+	);for(var  n=0;n <                freqByteData        .length  ; n ++ ){
+	var i     =   new                 createjs            .   Graphics();i .
+	beginFill( '#FFE008'              ), i              .   drawRect(0,  0 ,
+	window  . innerWidth /          2048, 20          );var r=new createjs .
+	Shape (i);stage.addChild        (r), r.x        =6 * n,r. y   =  window.
+	innerHeight,r.scaleY *=-        1 ;    }        createjs. Ticker.setFPS(
+	  60 ) ,createjs.Ticker  .        addEventListener ('tick' ,handleTick);}  
+	  function handleTick ( ){        analyserNode  . getByteFrequencyData  
+	    (freqByteData);   for(      var e= 0      ;e <    freqByteData .    
+	      length;e ++ )stage .                    children [e].scaleY=      
+	        freqByteData[e] /5*-                1 ;stage.update() ;}        
+	        var     analyserNode ,            freqByteData,canvas  ,        
+	          stage;window. onresize=resizeCanvas , window.onload=          
+	          function() {  SoundMp3('mp3/bensound-buddy.mp3' )  ,          
+	            resizeCanvas  (),canvas=document.getElementById(            
+	                  'canvas'),stage =new createjs.Stage(                  
+	                    canvas           )    ;  }     ;                    
+
+
+    </script>
+</body>
+</html>

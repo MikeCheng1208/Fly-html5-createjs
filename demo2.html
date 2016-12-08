@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>酷炫粒子噴發效果 </title>
+
+    <script src="//code.createjs.com/createjs-2015.11.26.min.js"></script>  
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #canvas{
+            display: block;
+        }
+    </style>      
+</head>
+<body>
+    <canvas id="canvas" style="background-color:#19212e"></canvas>      
+    <script>
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        
+                                                        function                                                        
+                                                    newCircle (e                                                        
+                                                  ,t,a){for( var n                            =                         
+                                                  [   '#FF324A'  ,                        '#31FFA6'                     
+                                                ,'#206EFF'       ,                      '#FFFF99' ],i=                  
+                                                0;40 >i;i ++    ){                    var   r =     new                 
+                                                  createjs     .                      Container()  ;  e.                
+                                                  addChild (                            r),r.x=t,r .y=a,                
+                                r               . rotation                                = 360  * Math.                
+                random (    )  ;              var  c                                        =     new                   
+                createjs     .              Graphics                                          ( );c.                    
+                beginFill(n [4            * Math                                                                        
+                .random( )|0              ]) ,c.                                                                        
+                  drawCircle            (0, 0,50                                                                        
+                    * Math              .                                                                               
+                      random          ()+20 |0                                                                          
+                    ) , c.            endFill               ( )  ;                                                      
+                    var  u            =   new             createjs .              Shape                                 
+                    (c); u            .x=0,u .          y=0;var   d=            new                                     
+                  createjs          . Graphics          (  )  ;  d .          beginStroke                               
+                  ( '#fff'          ) ,    d .        drawCircle (            0,0,170 ),d.          endStroke           
+                  () ;var           o    =new           createjs                .Shape(d );o        .x =                
+                  0,o .y=0          ,o. scaleX=0        ,  o .                  scaleY =0,          o  .                
+                  alpha  =          0.2,  r      .                                addChild        ( u),r                
+                    .               addChild (o ),                                  TweenMove     ( e,r)                
+                    ; }    }        function                                                    TweenMove               
+                    ( e ,t)  {      var   a  =200 *Math.          random() ,                  n =  500 ;                
+                    createjs   .      Tween.get( t.children[      0] ).to({x                :a,scaleX :0                
+                    , scaleY:0},      n,createjs. QuadraticIn)        .                 call(function( )                
+                    {        e   .    removeChild (t  ); }    ),                createjs.Tween .get(t.                  
+                    children[1]) .to({scaleX:1,scaleY:1,alpha:0},n  ,       createjs  .    CubicIn) ;}                  
+                      function resizeCanvas (){ var e  =document .        getElementById('canvas' );e.                  
+                      setAttribute('width',window.   innerWidth) ,  e.  setAttribute ('height',window.                  
+                      innerHeight);  }window.onload=  function  (){resizeCanvas  ();var    e=document.                  
+                      getElementById('canvas') ,t=new createjs.Stage(e);      t.  addEventListener   (                  
+                        'stagemousedown'  ,function(e) {newCircle (t ,e.      stageX,e .stageY); }),                    
+                        createjs .Ticker    .setFPS (60),createjs.Ticker      .  addEventListener  (                    
+                        'tick'   ,t) ;}  ,  window          .onresize=        resizeCanvas         ;                    
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>互動遮色片網頁</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0 ;
+		}
+		.world{
+			position: relative;
+			width: 100%;
+			height: 8000px;
+			background-color: #fff;
+		}
+		#canvas{
+			display: block;
+			width: 1920px;
+			height: 900px;
+			position: fixed;
+			top: 50%;
+			left: 0;
+			margin-top:-450px;
+		}
+	</style>
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script> 
+	<script src="//code.createjs.com/createjs-2015.11.26.min.js"></script>
+	<script src="index.js"></script>
+	<script src="js/main.js"></script>
+
+</head>
+<body>
+	<div class="world">
+		<canvas id="canvas" width="1920" height="900" style="display: block; background-color:rgba(255, 255, 255, 1.00)"></canvas>
+	</div>
+</body>
+</html>

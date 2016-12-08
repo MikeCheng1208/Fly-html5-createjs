@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>假的!產生器</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        h1{display:block;text-align:center;font-size: 30px;width: 600px;height: 150px;line-height:150px;margin:0 auto;}
+        input{display: block;width: 95%;height: 39px;font-size: 16px;border: 1px solid #ddd;}
+        #world{position: relative;margin:0 auto;width: 600px;height: 450px;}
+        #world > img{position: absolute;top:0;left:0;}
+        .txtBox{width: 600px;height: auto;overflow: hidden;margin:0 auto;}
+        .txtBox > ul {display: block;width: 100%;height: 100%;}
+        .txtBox > ul > li{display: block;width: 50%;height:50%;float:left;}
+        .txtBox > ul > li > p{font-size: 16px;line-height: 24px;color: rgb(85, 85, 85);padding-top:10px;}
+        h2{position: absolute;display:block;width: 50%;height:48px;text-align:center;color:#fff;line-height:48px;font-size: 17px;}
+        a#downLoadbtn{display:block; width: 200px;height: 36px; background-color:#000;color:#fff;text-align:center;line-height:36px;text-decoration:none;margin:45px auto;}
+        .txt1{top:162px;left:0;}
+        .txt2{top:162px;left:300px;}
+        .txt3{top:386px;left:0;}
+        .txt4{top:386px;left:300px;}
+        h1,h2,p{font-family: hack, "Helvetica Neue", Helvetica, Arial, "Hiragino Maru Gothic ProN", STHeiti, 微軟正黑體, "Microsoft Yahei", sans-serif;}
+    </style>       
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script>  
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js  "></script>  
+
+    <script>
+       $(function(){$("input").keyup(function(){var n=$(this)[0].id.substr(-1);$(".txt"+n).html($("#inp"+n).val()),""==$("#inp"+n).val()&&$(".txt"+n).html($("#inp"+n).attr("placeholder"))}),$("#downLoadbtn").on("click",function(){html2canvas($("#world"),{onrendered:function(n){var t=n.toDataURL("image/png",1);window.open(t)}})})});
+    </script>
+</head>
+<body>
+    <h1>假的!產生器</h1>
+    <div id="world">
+        <img src="images/1-8/pic.png" height="450" width="600">
+        <h2 class="txt1">今天晚上你回家打開門一看</h2>17
+        <h2 class="txt2">你老公跟別的女人在睡覺</h2>
+        <h2 class="txt3">假的！</h2>
+        <h2 class="txt4">哎呀！我眼睛業障重啊！</h2>
+    </div>
+    <div class="txtBox">
+        <ul>
+            <li>
+                <p>第一格</p>
+                <input id="inp1" type="text" placeholder="今天晚上你回家打開門一看" maxlength="16">
+            </li>
+            <li>
+                <p>第二格</p>
+                <input id="inp2" type="text" placeholder="你老公跟別的女人在睡覺" maxlength="16">
+            </li>
+            <li>
+                <p>第三格</p>
+                <input id="inp3" type="text" placeholder="假的！" maxlength="16">
+            </li>
+            <li>
+                <p>第四格</p>
+                <input id="inp4" type="text" placeholder="哎呀！我眼睛業障重啊！" maxlength="16">
+            </li>
+        </ul>
+    </div>
+    <a id="downLoadbtn" href="javascript:;">下載圖片</a>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿instagram濾鏡效果</title>
+    <script src="//code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script src="js/lib/JSManipulate/jsmanipulate.js"></script>
+
+    <style>
+        *{margin: 0;padding: 0;}
+        #canvas{display: block;position: absolute;top: 50%;left: 50%;margin-left: calc(-480px/2);margin-top:  calc(-480px/2);}
+        button{
+            margin: 5px 0px 0 10px;
+        }
+    </style>   
+</head>
+<body> 
+    <canvas width="480"	height="480" id="canvas" style="background-color:#ccc"></canvas>  
+    <button id="Blur">Blur模糊</button>
+    <button id="Brightness">Brightness亮度</button>
+    <button id="Bump">Bump加深</button>
+    <button id="Circlesmear">Circlesmear油畫效果</button>
+    <button id="Contrast">Contrast對比</button>
+    <button id="Sepia">Sepia舊照片</button>
+    <button id="Save">Save Image</button>
+    <script>				
+                                                                                                                
+                            window     .                                                                        
+                        onload       =                                                                          
+                      function    ( ){    function                                                              
+                    e (e,t){u.clearRect(0,0,480,480),u      .                                                   
+                    drawImage(e,0,0 ,480 ,480);var a =u.    getImageData                                        
+                    (0, 0,c.width,c.height) ;JSManipulate.    blur .                                            
+                  filter(a,{ amount:t}),u.putImageData(a,0,0    )   ;  }                                        
+                    function t( e ,t    ){u .clearRect(0,0,480,480 ), u.                                        
+                    drawImage(e,0, 0,480      ,   480 ); var     a=   u.                                        
+                  getImageData(0 ,0,            c. width  ,c . height) ;                                        
+                  JSManipulate                      . brightness.filter (a,{                                    
+                amount: t}                            ),u .putImageData(a,0,                                    
+                0 );   }                              function  a(e  ) {u  .                                    
+                clearRect                             (0 ,0,      480,480), u.                                  
+                  drawImage                             (e ,        0 ,0, 480,                                  
+                  480) ;                                var  t      =u       .                                  
+                  getImageData                          (0,0,c .width,c.height);                                
+                  JSManipulate                    . bump.filter(t), u.  putImageData                            
+                    ( t,                    0,0);}function  n(e){u          .                                   
+                    clearRect             ( 0 ,0,480 ,480), u.                drawImage                         
+                      (                   e,0,0,480  ,  480)   ;                                                
+                      var     t =u          .           getImageData                                            
+                      (     0,0 , c.        width ,c    .   height)  ;                                          
+                      JSManipulate   .      circlesmear     . filter                                            
+                        (t ,    { size      :   6    ,                                                          
+                                density     :   0.5,                                                            
+                            mix:0.73 }      )    ,  u.                                                          
+                            putImageData (         t,0,0) ; }                                                          
+                                            function                                                            
+                                          i(e, t){u.                                  clearRect                 
+                                          ( 0, 0,480 ,                                480                       
+                                                  ) ,u .                              drawImage                 
+                                              (e ,  0, 0                            ,480 ,                      
+                                              480 );var a=                        u      .                      
+                                                getImageData              (0,0,c.width ,                        
+                                              c.  height )     ;          JSManipulate                          
+                                              .   contrast .filter        (a,{amount :        t                 
+                                                    }    )  ,   u.      putImageData                            
+                                                (  a, 0,0  )  ;}      function  r(                              
+                                              e,t){ u.clearRect(  0, 0,480,480),u.            drawImage         
+                                                    ( e ,0,0,480 ,480) ;var a=u.              getImageData      
+                                                    (0, 0 ,c . width ,c.height);            JSManipulate        
+                                                .sepia. filter(a,{amount:t}),u            . putImageData(a,0    
+                                                  ,0) ;   }  var  c =document.          getElementById     (    
+                                                      'canvas') ,   u =   c.          getContext   (    '2d' )  
+                                                          , o=new createjs .      LoadQueue( !0)          ,     
+                                                          d = [ {     src:    'images/101.jpg'                  
+                                                    ,id: 'image0'} ] ; o .  loadManifest (                 d),o .
+                                                    addEventListener (       'fileload' ,                    function
+                                                                        (o){var   d=o.          result ; u      .
+                                                                          drawImage( d    ,0 ,0,480,  480 );var 
+                                                                        m =  document  .  querySelector( '#Blur'
+                                                                    ),l=document.querySelector ('#Brightness'),g
+                                                                  =document.querySelector ('#Bump') ,s=document.
+                                                                  querySelector('#Circlesmear'), f  = document .
+                                                                querySelector ('#Contrast') ,   v=  document    
+                                                                .       querySelector ('#Sepia'  );m .          
+                                                              addEventListener('click' ,function(){e(d          
+                                                              ,5);}),l.addEventListener('click' ,function(      
+                                                            ){t(d,0.5) ;}),g.addEventListener('click',function  
+                                                            (){a(d);}), s.addEventListener('click',function(){n(
+                                                          d);}),f.addEventListener('click',function() {i(d,1.5);
+                                                          }),v.addEventListener ('click',function (){r( d,9);});
+                                                        var   h= document   .  querySelector ('#Save' ) ;   h  .
+                                                        addEventListener('click',function(){var  e= c.toDataURL(
+                                                        'image/png' ,0.5) ; window. open   (e)  ; })   ;     });  }  ;
+
+    </script>
+</body>
+</html>

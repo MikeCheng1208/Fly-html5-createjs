@@ -1,0 +1,49 @@
+   *{
+	    padding: 0;
+	   margin: 0;
+   }
+   html,body{
+		width: 100%;
+		height: 100%;
+	   background-color: #000;
+   }
+   @font-face {
+        font-family: 'Flappy Bird';
+        src: url('../fonts/FB.eot');
+        src: url('../fonts/FB.eot?#iefix') format('embedded-opentype'),
+             url('../fonts/FB.woff') format('woff'),
+             url('../fonts/FB.ttf') format('truetype'),
+             url('../fonts/FB.svg#04b_19regular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+   }
+   #canvas{
+		display: block;
+		width: 429px;
+		height: 590px;
+		margin: 20px auto 0 auto;
+   }
+   p{
+	   display: block;
+	   width: 429px;
+	   text-align: center;
+	   font-size: 15px;
+	   color: #fff;
+	   margin: 10px auto 0 auto;
+   }
+   @media screen and (max-width: 640px) {
+	   html,body{
+			width: 100%;
+			height: 100%;
+	   }
+   		#canvas{
+			display: block;
+			width: 100%;
+			height: 100%;
+			margin: 0;
+		}
+	   p{
+		   display: none;
+	   }
+	   
+   }
