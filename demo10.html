@@ -48,7 +48,7 @@
 			var color = "#" + (~~(Math.random() * 0xffffff)).toString(16); 
 			var text = new createjs.Text(usertext,str,color);
 			stage.addChild(text);
-			text.x = 50;
+			text.x = 0;
 			text.y = Math.random() * (window.innerHeight - 0 + 1) + 0 | 0;
 			createjs.Tween.get(text).to({x: window.innerWidth}, speed , createjs.QuadraticIn).call(function(){
 				stage.removeChild(text);
