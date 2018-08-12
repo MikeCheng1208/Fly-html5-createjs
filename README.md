@@ -1,6 +1,4 @@
-# HTML5 canvas 互動式網頁開發入門班
-
-* 講師：mike
+# HTML5 canvas createjs demo
 
 範例demo連結
 * 01：https://mikecheng1208.github.io/Fly-html5-createjs/demo1.html
